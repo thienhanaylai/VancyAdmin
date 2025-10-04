@@ -145,7 +145,7 @@ const DashboardPage = () => {
       key: "createdAt",
       render: (createdAt) => (
         <>
-          <p>{createdAt.replace("T", " ").slice(createdAt.length())}</p>
+          <p>{createdAt.replace("T", " ").replace("Z", "")}</p>
         </>
       ),
     },
