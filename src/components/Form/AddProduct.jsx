@@ -11,7 +11,6 @@ import {
   message,
   Image,
   Select,
-  message,
 } from "antd";
 
 import config from "../../../config";
@@ -28,7 +27,7 @@ const AddProductForm = ({ onSuccess, onCancel, initialData }) => {
   const [loading, setLoading] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
-  const [message, contextHolder] = message.useMessage();
+
   useEffect(() => {
     if (initialData) {
       const imageFileList = (initialData.images || []).map((url, index) => ({
