@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: VancyAdmin/package-lock.json
+
       # Bước 3: Cài đặt các gói cần thiết
       - name: Install dependencies
         run: npm install
