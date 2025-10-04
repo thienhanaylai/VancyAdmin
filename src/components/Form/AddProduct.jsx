@@ -143,7 +143,6 @@ const AddProductForm = ({ onSuccess, onCancel, initialData }) => {
 
   return (
     <>
-      {contextHolder}
       <Form
         form={form}
         layout="vertical"

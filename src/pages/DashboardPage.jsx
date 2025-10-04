@@ -36,7 +36,7 @@ const DashboardPage = () => {
     };
     fetchProducts();
   }, []);
-  console.log(dataSource);
+
   const handleFormSuccess = (resultProduct) => {
     if (editingRecord) {
       // Chế độ sửa: tìm và cập nhật
