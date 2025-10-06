@@ -266,6 +266,14 @@ const AddProductForm = ({ onSuccess, onCancel, initialData }) => {
                 label: "Combo",
                 value: "combo",
               },
+              {
+                label: "Sản phẩm",
+                value: "product",
+              },
+              {
+                label: "Đề xuất ở trang chủ",
+                value: "recommend",
+              },
             ]}
           />
         </Form.Item>
