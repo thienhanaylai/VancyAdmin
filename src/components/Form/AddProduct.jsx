@@ -63,18 +63,21 @@ const AddProductForm = ({ onSuccess, onCancel, initialData }) => {
       for (const key in values) {
         if (key === "images") continue;
 
-        // Xử lý trường 'prices' là một mảng object
-        if (key === "prices" && Array.isArray(values[key])) {
+        if (key === "catalog" && Array.isArray(values[key])) {
+          values[key].forEach((item, index) => {
+            formData.append(`catalog[${index}]`, item);
+          });
+        } else if (key === "prices" && Array.isArray(values[key])) {
+          // Thay bằng else if
           values[key].forEach((priceItem, index) => {
             formData.append(`prices[${index}][weight]`, priceItem.weight);
             formData.append(`prices[${index}][price]`, priceItem.price);
           });
         } else {
-          // Thêm các trường dữ liệu khác
           formData.append(key, values[key]);
+          console.log(key);
         }
       }
-
       const fileList = values.images?.fileList || values.images || [];
       const newFilesToUpload = fileList.filter((file) => file.originFileObj);
 
@@ -256,12 +259,8 @@ const AddProductForm = ({ onSuccess, onCancel, initialData }) => {
             allowClear
             style={{ width: "100%" }}
             placeholder="Chọn danh mục sản phẩm, combo, bán lẻ,..."
-            defaultValue={""}
+            defaultValue={[]}
             options={[
-              {
-                label: "Sản phẩm",
-                value: "product",
-              },
               {
                 label: "Combo",
                 value: "combo",
